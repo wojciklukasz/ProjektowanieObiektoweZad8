@@ -5,8 +5,8 @@ import useOrder from "../hooks/useOrder";
 const defaultValue = {
     services: [],
     order: [],
-    addService: () => {},
-    removeService: () => {},
+    addService: () => { return null },
+    removeService: () => { return null },
     total: Number
 };
 
@@ -26,8 +26,8 @@ export const ShopContextProvider = ({children}) => {
 
     useEffect(() => {
         fetchServices()
-            .then((services) => {
-                setServices(services);
+            .then((serv) => {
+                setServices(serv);
                 setOrder([]);
                 setTotal(0);
             })
